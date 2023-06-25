@@ -5,23 +5,22 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions} from '@mui/material'
 
-export default function RickAndMortyCard( {name} ) {
+export default function RickAndMortyCard( {name, image, status} ) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }}>
         <CardActionArea>
             <CardMedia
-            sx={{ height: 140 }}
-            image="/static/images/cards/contemplative-reptile.jpg"
-            title="green iguana"
+            sx={{ height: 300 }}
+            image={image}
+            title="rick"
             />
             <CardContent>
             <Typography gutterBottom variant="h5" component="div">
                 {name}
             </Typography>
-            {/* <Typography variant="body2" color="text.secondary">
-                Lizards are a widespread group of squamate reptiles, with over 6,000
-                species, ranging across all continents except Antarctica
-            </Typography> */}
+            <Typography variant="body2" color="text.secondary">
+                Status: {status}
+            </Typography>
             </CardContent>
       </CardActionArea>
         {/* <CardActions>

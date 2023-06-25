@@ -13,20 +13,25 @@ export const Home = () => {
     }, [])
 
     const getCharacters = () => {
-        axios
-        .get('https://rickandmortyapi.com/api/character')
-        .then((res)=> setCharacters(res.data.results))
+        let endpoints = [];
+        for (let i = 1; i < 55; i++) {
+            endpoints.push(`https://rickandmortyapi.com/api/character/${i}/`)
+        }
+        let response = axios.all(endpoints.map((endpoint) => axios
+        .get(endpoint)))
+        .then((res) => setCharacters(res))
         .catch((err) => console.log(err))
+        
     }
     
     return (
         <div>
             <NavBar/>
             <Container maxWidth="false">
-                <Grid container>
+                <Grid container spacing={2}>
                     {characters.map((character, key) => (
-                        <Grid item xs={3}key={key}>
-                        <RickAndMortyCard name={character.name} /> 
+                        <Grid item xs={2}key={key}>
+                        <RickAndMortyCard name={character.data.name} image={character.data.image} status={character.data.status}/> 
                         </Grid>
                     ))}
                     
