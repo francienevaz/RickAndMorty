@@ -17,16 +17,31 @@ export const Home = () => {
         for (let i = 1; i < 55; i++) {
             endpoints.push(`https://rickandmortyapi.com/api/character/${i}/`)
         }
-        let response = axios.all(endpoints.map((endpoint) => axios
+        axios.all(endpoints.map((endpoint) => axios
         .get(endpoint)))
         .then((res) => setCharacters(res))
         .catch((err) => console.log(err))
         
+    };
+
+    const charactersFilter = (name) => {
+        let filteredCharacters = []
+
+        if (name === ""){
+            getCharacters()
+        }
+        for (let i in characters) {
+
+            if (characters[i].data.name.includes(name)){
+                filteredCharacters.push(characters[i]);
+            }
+        }
+        setCharacters(filteredCharacters)
     }
     
     return (
         <div>
-            <NavBar/>
+            <NavBar charactersFilter={charactersFilter}/>
             <Container maxWidth="false">
                 <Grid container spacing={2}>
                     {characters.map((character, key) => (

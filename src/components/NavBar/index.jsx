@@ -51,7 +51,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar() {
+export default function NavBar({ characterFilter }) {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: "2em"}}>
       <AppBar position="static" sx={{backgroundColor: 'black'}}>
@@ -65,7 +65,7 @@ export default function NavBar() {
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
           </Typography>
-            <Search>
+            <Search onChange={(e) => characterFilter(e.target.value)}>
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
