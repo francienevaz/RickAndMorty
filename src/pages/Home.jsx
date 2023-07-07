@@ -32,7 +32,7 @@ export const Home = () => {
         }
         for (let i in characters) {
 
-            if (characters[i].data.name.toLowerCase().includes(name)){
+            if (characters[i].data.name.toLowerCase().includes(name.toLowerCase())){
                 filteredCharacters.push(characters[i]);
             }
         }
