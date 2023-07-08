@@ -3,7 +3,7 @@ import axios from 'axios'
 import NavBar from '../components/NavBar'
 import RickAndMortyCard from '../components/Card'
 import { Grid } from '@mui/material'
-import { Box, Container } from '@mui/system'
+import { Container } from '@mui/system'
 
 export const Home = () => {
 
