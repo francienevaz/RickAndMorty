@@ -14,7 +14,7 @@ export const Home = () => {
 
     const getCharacters = () => {
         let endpoints = [];
-        for (let i = 1; i < 105; i++) {
+        for (let i = 1; i < 150; i++) {
             endpoints.push(`https://rickandmortyapi.com/api/character/${i}/`)
         }
         axios.all(endpoints.map((endpoint) => axios
